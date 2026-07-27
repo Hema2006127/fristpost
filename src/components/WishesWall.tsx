@@ -70,6 +70,7 @@ export default function WishesWall() {
 
         {/* Submit Form */}
         <motion.form
+          className="wishes-form"
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +88,7 @@ export default function WishesWall() {
             gap: '1.2rem',
           }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="wishes-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             <input
               value={name}
               onChange={e => setName(e.target.value)}
@@ -104,7 +105,7 @@ export default function WishesWall() {
                 fontFamily: 'inherit',
               }}
             />
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(212,175,55,0.5)', fontSize: '0.85rem', paddingLeft: '0.5rem' }}>
+            <div className="wishes-form-hint" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(212,175,55,0.5)', fontSize: '0.85rem', paddingLeft: '0.5rem' }}>
               ✍️ Your wish will appear on the wall after you submit
             </div>
           </div>
@@ -126,7 +127,7 @@ export default function WishesWall() {
               fontFamily: 'inherit',
             }}
           />
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="wishes-form-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <AnimatePresence>
               {submitted && (
                 <motion.span

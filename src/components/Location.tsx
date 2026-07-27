@@ -2,107 +2,165 @@
 
 import { motion } from 'framer-motion';
 
+const VENUE_NAME   = 'Armani Hotel Dubai, Burj Khalifa';
+const MAPS_EMBED   = 'https://maps.google.com/maps?q=Armani+Hotel+Dubai&output=embed&z=15';
+const MAPS_LINK    = 'https://maps.google.com/maps?q=Armani+Hotel+Dubai';
+
 export default function Location() {
   return (
-    <section 
+    <section
       style={{
         padding: 'var(--spacing-xl) var(--spacing-md)',
         backgroundColor: 'var(--black)',
         color: 'var(--white)',
-        position: 'relative'
+        position: 'relative',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-        
-        {/* Location Section */}
-        <motion.div 
+      <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+
+        {/* ── Venue ── */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1 }}
           style={{ textAlign: 'center' }}
         >
-          <h2 style={{ fontSize: '3rem', color: 'var(--primary-gold)', marginBottom: '1rem' }}>The Venue</h2>
-          <p style={{ color: 'var(--champagne)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem', marginBottom: '3rem' }}>
-            Join us at the spectacular Grand Palace for a night of magic and celebration.
+          <p style={{ color: 'var(--primary-gold)', letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '0.8rem' }}>
+            The Venue
+          </p>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3rem)', color: 'var(--ivory)', fontFamily: 'var(--font-english)', marginBottom: '0.6rem' }}>
+            Armani Hotel Dubai
+          </h2>
+          <p style={{ color: 'var(--champagne)', fontSize: '1rem', marginBottom: '2.5rem', lineHeight: 1.6 }}>
+            Burj Khalifa · Downtown Dubai · UAE
           </p>
 
-          <div style={{
-            borderRadius: 'var(--radius-lg)',
-            overflow: 'hidden',
-            boxShadow: 'var(--shadow-luxury)',
-            border: '1px solid rgba(212, 175, 55, 0.2)',
-            height: '400px',
-            position: 'relative',
-            backgroundColor: 'var(--dark-gray)'
-          }}>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3e5f43348a6d4957%3A0x3f72159160ee6006!2sArmani+Hotel+Dubai!5e0!3m2!1sen!2sae!4v1705929654124!5m2!1sen!2sae"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, filter: 'grayscale(100%) contrast(1.2) opacity(0.8)' }} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <button style={{
-              padding: '1rem 2rem',
-              backgroundColor: 'var(--primary-gold)',
-              color: 'var(--white)',
-              border: 'none',
-              borderRadius: 'var(--radius-pill)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
+          {/* Map container — responsive height */}
+          <div
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              border: '1px solid rgba(212,175,55,0.25)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              position: 'relative',
+              width: '100%',
+              paddingTop: 'clamp(250px, 45vw, 420px)',  /* fluid aspect-ratio without breaking on mobile */
+              backgroundColor: '#1a1a1a',
             }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <iframe
+              src={MAPS_EMBED}
+              title="Armani Hotel Dubai"
+              style={{
+                position: 'absolute',
+                top: 0, left: 0,
+                width: '100%',
+                height: '100%',
+                border: 0,
+                filter: 'grayscale(80%) contrast(1.1) brightness(0.9)',
+              }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
+          {/* Open in maps button */}
+          <div style={{ marginTop: '1.8rem' }}>
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                padding: '0.9rem 2.2rem',
+                background: 'linear-gradient(135deg, var(--primary-gold), #9a7820)',
+                color: '#fff',
+                borderRadius: '999px',
+                fontSize: '0.85rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-english-sans)',
+                boxShadow: '0 6px 20px rgba(212,175,55,0.3)',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 12px 28px rgba(212,175,55,0.45)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(212,175,55,0.3)';
+              }}
             >
-              Open in Google Maps
-            </button>
+              📍 Open in Google Maps
+            </a>
           </div>
         </motion.div>
 
-        {/* Dress Code Section */}
-        <motion.div 
+        {/* ── Dress Code ── */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, delay: 0.2 }}
-          style={{ textAlign: 'center', marginTop: '2rem' }}
+          style={{ textAlign: 'center' }}
         >
-          <h2 style={{ fontSize: '3rem', color: 'var(--primary-gold)', marginBottom: '1rem' }}>Dress Code</h2>
-          <p style={{ color: 'var(--champagne)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem', marginBottom: '3rem' }}>
-            Black Tie Optional. We request our guests to dress in formal attire.
+          <p style={{ color: 'var(--primary-gold)', letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '0.8rem' }}>
+            Dress Code
+          </p>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3rem)', color: 'var(--ivory)', fontFamily: 'var(--font-english)', marginBottom: '0.6rem' }}>
+            Black Tie Optional
+          </h2>
+          <p style={{ color: 'var(--champagne)', maxWidth: '550px', margin: '0 auto 2.5rem', fontSize: '1rem', lineHeight: 1.6 }}>
+            We invite our guests to dress in elegant formal attire to match the grandeur of the evening.
           </p>
 
-          <div style={{
-            display: 'flex',
-            gap: '2rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
-            <div className="glass-panel" style={{ padding: '2rem', flex: '1', minWidth: '250px', maxWidth: '400px', background: 'rgba(255,255,255,0.02)' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--primary-gold)' }}>For Gentlemen</h3>
-              <p style={{ color: 'var(--text-secondary)' }}>Tuxedo or a formal dark suit and tie.</p>
-            </div>
-            <div className="glass-panel" style={{ padding: '2rem', flex: '1', minWidth: '250px', maxWidth: '400px', background: 'rgba(255,255,255,0.02)' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--primary-gold)' }}>For Ladies</h3>
-              <p style={{ color: 'var(--text-secondary)' }}>Floor-length evening gown or a formal cocktail dress.</p>
-            </div>
+          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            {[
+              { title: '👔 Gentlemen', desc: 'Tuxedo or a formal dark suit with tie.' },
+              { title: '👗 Ladies',    desc: 'Evening gown or a formal cocktail dress.' },
+            ].map(card => (
+              <motion.div
+                key={card.title}
+                whileHover={{ y: -4 }}
+                style={{
+                  padding: '2rem',
+                  flex: '1',
+                  minWidth: '240px',
+                  maxWidth: '360px',
+                  background: 'rgba(212,175,55,0.04)',
+                  border: '1px solid rgba(212,175,55,0.2)',
+                  borderRadius: '16px',
+                  backdropFilter: 'blur(10px)',
+                }}
+              >
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem', color: 'var(--primary-gold)', fontFamily: 'var(--font-english)' }}>{card.title}</h3>
+                <p style={{ color: 'var(--champagne)', lineHeight: 1.7, fontSize: '0.95rem' }}>{card.desc}</p>
+              </motion.div>
+            ))}
           </div>
-          <div style={{ marginTop: '2rem' }}>
-            <p style={{ color: 'var(--champagne)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+
+          {/* Color dots */}
+          <div style={{ marginTop: '2.5rem' }}>
+            <p style={{ color: 'var(--champagne)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1rem' }}>
               Recommended Colors
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#000000', border: '1px solid rgba(255,255,255,0.2)' }} title="Black" />
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#1A2A3A', border: '1px solid rgba(255,255,255,0.2)' }} title="Navy Blue" />
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#D4AF37', border: '1px solid rgba(255,255,255,0.2)' }} title="Gold Accents" />
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              {['#0d0d0d', '#1A2A3A', '#2C1810', '#D4AF37'].map((color, i) => (
+                <div
+                  key={i}
+                  title={['Black','Navy Blue','Dark Brown','Gold Accents'][i]}
+                  style={{
+                    width: 40, height: 40,
+                    borderRadius: '50%',
+                    backgroundColor: color,
+                    border: '2px solid rgba(255,255,255,0.15)',
+                    boxShadow: `0 4px 12px ${color}66`,
+                  }}
+                />
+              ))}
             </div>
           </div>
         </motion.div>

@@ -178,5 +178,74 @@ input:focus, textarea:focus, select:focus {
     font-size: 0.62rem !important;
     letter-spacing: 0.12em !important;
   }
+
+
+/* ── Wishes Wall Mobile Responsive ── */
+@media (max-width: 640px) {
+  .wishes-form {
+    padding: 1.2rem !important;
+    border-radius: 16px !important;
+  }
+  .wishes-form-row {
+    grid-template-columns: 1fr !important;
+  }
+  .wishes-form-hint {
+    display: none !important;
+  }
+  .wishes-form-footer {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.8rem !important;
+  }
 }
 
+/* ── RSVP Form Mobile ── */
+@media (max-width: 640px) {
+  /* Stack the 2-column grids to single column */
+  .glass-panel div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .glass-panel {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ── Gallery Mobile ── */
+@media (max-width: 480px) {
+  /* Force single column on very small screens */
+  div[style*="minmax(280px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Location Map Mobile ── */
+@media (max-width: 640px) {
+  iframe {
+    height: 260px !important;
+  }
+}
+
+/* ── Timeline Mobile — stack vertically ── */
+@media (max-width: 700px) {
+  div[style*="grid-template-columns: 1fr 60px 1fr"] {
+    grid-template-columns: 40px 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  div[style*="grid-template-columns: 1fr 60px 1fr"] > div:first-child {
+    display: none !important;
+  }
+  div[style*="grid-template-columns: 1fr 60px 1fr"] > div:last-child {
+    visibility: visible !important;
+    text-align: left !important;
+    padding-left: 1rem !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ── Hero countdown cards mobile ── */
+@media (max-width: 480px) {
+  section#hero div[style*="min-width: 90px"] {
+    min-width: 70px !important;
+    padding: 0.8rem 0.4rem !important;
+  }
+}
