@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cairo.variable} ${playfair.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${cairo.variable} ${playfair.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body>
         <SmoothScroll>
           {children}

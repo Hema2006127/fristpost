@@ -86,8 +86,8 @@ export default function RSVP() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Attendance</label>
-                  <select required style={{ ...inputStyles, appearance: 'none', cursor: 'pointer' }}>
-                    <option value="" disabled selected>Will you attend?</option>
+                  <select required defaultValue="" style={{ ...inputStyles, appearance: 'none', cursor: 'pointer' }}>
+                    <option value="" disabled>Will you attend?</option>
                     <option value="yes">Joyfully Accepts</option>
                     <option value="no">Regretfully Declines</option>
                     <option value="maybe">Maybe</option>
