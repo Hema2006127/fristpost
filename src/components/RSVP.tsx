@@ -62,17 +62,17 @@ export default function RSVP() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="glass-panel"
+              className="glass-panel rsvp-form-container"
               style={{
                 padding: '3rem',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1.5rem',
-                backgroundColor: 'var(--bg-primary)', // Using solid bg if in light mode for readability, or glass if dark
+                backgroundColor: 'var(--bg-primary)',
                 boxShadow: 'var(--shadow-luxury)'
               }}
             >
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div className="rsvp-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Full Name</label>
                   <input required type="text" style={inputStyles} placeholder="Mr. & Mrs. Smith" />
@@ -83,7 +83,7 @@ export default function RSVP() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div className="rsvp-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Attendance</label>
                   <select required defaultValue="" style={{ ...inputStyles, appearance: 'none', cursor: 'pointer' }}>
@@ -99,12 +99,12 @@ export default function RSVP() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', boxSizing: 'border-box' }}>
                 <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Food Notes / Allergies</label>
                 <input type="text" style={inputStyles} placeholder="E.g., Vegetarian, No Peanuts" />
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', boxSizing: 'border-box' }}>
                 <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>A Message for the Couple</label>
                 <textarea rows={4} style={{ ...inputStyles, resize: 'vertical' }} placeholder="Leave a wish..." />
               </div>
@@ -124,7 +124,9 @@ export default function RSVP() {
                   fontSize: '1rem',
                   cursor: status === 'submitting' ? 'wait' : 'pointer',
                   transition: 'background-color 0.3s ease',
-                  opacity: status === 'submitting' ? 0.7 : 1
+                  opacity: status === 'submitting' ? 0.7 : 1,
+                  width: '100%',
+                  boxSizing: 'border-box'
                 }}
               >
                 {status === 'submitting' ? 'Sending...' : 'Send RSVP'}
@@ -138,6 +140,8 @@ export default function RSVP() {
 }
 
 const inputStyles = {
+  width: '100%',
+  boxSizing: 'border-box' as const,
   padding: '1rem',
   backgroundColor: 'transparent',
   border: '1px solid rgba(212, 175, 55, 0.3)',
@@ -148,3 +152,4 @@ const inputStyles = {
   fontFamily: 'inherit',
   transition: 'border-color 0.3s ease',
 };
+

@@ -14,7 +14,7 @@ const events = [
 export default function Timeline() {
   return (
     <section style={{
-      padding: '8rem 2rem',
+      padding: 'var(--spacing-xl) var(--spacing-md)',
       background: 'linear-gradient(160deg, var(--dark-gray) 0%, #110a00 100%)',
       position: 'relative',
       overflow: 'hidden',
@@ -29,7 +29,7 @@ export default function Timeline() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+      <div className="timeline-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,14 +46,9 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline line */}
-        <div style={{
-          position: 'absolute', left: '50%', top: '160px', bottom: '40px',
-          width: '1px',
-          background: 'linear-gradient(to bottom, transparent, var(--primary-gold), transparent)',
-          transform: 'translateX(-50%)',
-        }} />
+        <div className="timeline-vertical-line" />
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', position: 'relative' }}>
           {events.map((ev, i) => {
             const isLeft = i % 2 === 0;
             return (
@@ -63,39 +58,25 @@ export default function Timeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 60px 1fr',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
+                className={`timeline-row ${isLeft ? 'is-left' : 'is-right'}`}
               >
-                {/* Left slot */}
-                <div style={{ textAlign: 'right', paddingRight: '1.5rem', ...(isLeft ? {} : { visibility: 'hidden' }) }}>
-                  {isLeft && <EventCard ev={ev} />}
+                {/* Card Column */}
+                <div className="timeline-card-col">
+                  <EventCard ev={ev} />
                 </div>
 
-                {/* Center dot */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}>
-                  <div style={{
-                    width: '48px', height: '48px', borderRadius: '50%',
-                    border: '1px solid var(--primary-gold)',
-                    background: 'rgba(212,175,55,0.1)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '1.4rem',
-                    backdropFilter: 'blur(8px)',
-                  }}>
+                {/* Badge/Dot Column */}
+                <div className="timeline-badge-col">
+                  <div className="timeline-icon-circle">
                     {ev.icon}
                   </div>
-                  <span style={{ color: 'var(--primary-gold)', fontSize: '0.75rem', whiteSpace: 'nowrap', letterSpacing: '0.05em' }}>
+                  <span className="timeline-time-text">
                     {ev.time}
                   </span>
                 </div>
 
-                {/* Right slot */}
-                <div style={{ textAlign: 'left', paddingLeft: '1.5rem', ...(!isLeft ? {} : { visibility: 'hidden' }) }}>
-                  {!isLeft && <EventCard ev={ev} />}
-                </div>
+                {/* Spacer Column */}
+                <div className="timeline-spacer-col" />
               </motion.div>
             );
           })}
@@ -109,13 +90,15 @@ function EventCard({ ev }: { ev: typeof events[0] }) {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
+      className="timeline-card"
       style={{
         background: 'rgba(212,175,55,0.04)',
         border: '1px solid rgba(212,175,55,0.2)',
         borderRadius: '16px',
         padding: '1.5rem',
         backdropFilter: 'blur(10px)',
-        transition: 'border-color 0.3s',
+        transition: 'border-color 0.3s, transform 0.3s',
+        textAlign: 'inherit',
       }}
       onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(212,175,55,0.6)')}
       onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(212,175,55,0.2)')}
