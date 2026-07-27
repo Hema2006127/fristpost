@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -35,7 +34,6 @@ export default function RootLayout({
     <html lang="en" className={`${cairo.variable} ${playfair.variable} ${poppins.variable}`}>
       <body>
         <SmoothScroll>
-          <CustomCursor />
           {children}
         </SmoothScroll>
       </body>

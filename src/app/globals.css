@@ -88,10 +88,6 @@ a {
    GLOBAL POLISH
 ────────────────────────────────────────── */
 
-/* Hide native cursor on desktop (custom cursor active) */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-}
 
 /* Smooth font rendering */
 body {
