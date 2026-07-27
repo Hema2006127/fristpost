@@ -35,51 +35,36 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      height: 32,
-      width: 32,
-      backgroundColor: 'transparent',
-      border: '1px solid var(--primary-gold)',
-      transition: { type: 'tween', ease: 'backOut', duration: 0.15 }
-    },
-    hover: {
-      x: mousePosition.x - 24,
-      y: mousePosition.y - 24,
-      height: 48,
-      width: 48,
-      backgroundColor: 'rgba(212, 175, 55, 0.1)',
-      border: '1px solid var(--primary-gold)',
-      mixBlendMode: 'difference' as const,
-      transition: { type: 'tween', ease: 'backOut', duration: 0.15 }
-    }
-  };
-
   return (
     <motion.div
       className="custom-cursor"
-      variants={variants}
-      animate={isHovered ? 'hover' : 'default'}
+      animate={{
+        x: mousePosition.x - (isHovered ? 24 : 16),
+        y: mousePosition.y - (isHovered ? 24 : 16),
+        height: isHovered ? 48 : 32,
+        width:  isHovered ? 48 : 32,
+        backgroundColor: isHovered ? 'rgba(212, 175, 55, 0.1)' : 'transparent',
+        border: '1px solid var(--primary-gold)',
+      }}
+      transition={{ type: 'tween', ease: 'backOut', duration: 0.12 }}
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         borderRadius: '50%',
         pointerEvents: 'none',
-        zIndex: 9999,
+        zIndex: 99999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       }}
     >
-      <div 
+      <div
         style={{
           width: 4,
           height: 4,
           backgroundColor: 'var(--primary-gold)',
-          borderRadius: '50%'
+          borderRadius: '50%',
         }}
       />
     </motion.div>
