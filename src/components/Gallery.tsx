@@ -8,7 +8,7 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80', alt: 'Wedding flowers' },
   { src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=900&q=80', alt: 'Wedding couple' },
   { src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=900&q=80', alt: 'Wedding rings' },
-  { src: 'https://images.unsplash.com/photo-1583939008711-d0b2f518e38d?w=900&q=80', alt: 'Wedding dress' },
+  { src: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=900&q=80', alt: 'Wedding dress' },
   { src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=900&q=80', alt: 'Wedding reception' },
   { src: 'https://images.unsplash.com/photo-1518049362265-d5b2a6467637?w=900&q=80', alt: 'Wedding bouquet' },
   { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=900&q=80', alt: 'Wedding venue' },

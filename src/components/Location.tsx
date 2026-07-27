@@ -37,7 +37,7 @@ export default function Location() {
             backgroundColor: 'var(--dark-gray)'
           }}>
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3e5f43348a6d4957%3A0x3f72159160ee6006!2sArmani+Hotel+Dubai!5e0!3m2!1sen!2sae!4v1705929654124!5m2!1sen!2sae"
               width="100%" 
               height="100%" 
               style={{ border: 0, filter: 'grayscale(100%) contrast(1.2) opacity(0.8)' }} 

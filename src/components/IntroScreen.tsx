@@ -196,6 +196,7 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
               <AnimatePresence>
                 {stage === 'card' && (
                   <motion.div
+                    className="intro-card"
                     initial={{ y: '30%', opacity: 0 }}
                     animate={{ y: '-22%', opacity: 1 }}
                     transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
@@ -214,9 +215,9 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
                     }}
                   >
                     {/* Top ornament */}
-                    <div style={{ color: '#c8a84b', fontSize: '0.9rem', letterSpacing: '0.4em', marginBottom: '0.6rem' }}>✦ ✦ ✦</div>
+                    <div className="intro-ornament" style={{ color: '#c8a84b', fontSize: '0.9rem', letterSpacing: '0.4em', marginBottom: '0.6rem' }}>✦ ✦ ✦</div>
 
-                    <p style={{
+                    <p className="intro-lead" style={{
                       fontFamily: 'var(--font-english-sans)',
                       fontSize: '0.6rem',
                       letterSpacing: '0.35em',
@@ -227,9 +228,9 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
                       Together with their families
                     </p>
 
-                    <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, #c8a84b, transparent)', margin: '0 10% 1rem' }} />
+                    <div className="intro-line" style={{ height: '1px', background: 'linear-gradient(to right, transparent, #c8a84b, transparent)', margin: '0 10% 1rem' }} />
 
-                    <h2 style={{
+                    <h2 className="intro-title" style={{
                       fontFamily: 'var(--font-english)',
                       fontSize: 'clamp(1.5rem, 4.5vw, 2.2rem)',
                       color: '#2a1500',
@@ -239,8 +240,8 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
                     }}>
                       Sarah
                     </h2>
-                    <div style={{ color: '#c8a84b', fontSize: '1.2rem', margin: '0.3rem 0' }}>♡</div>
-                    <h2 style={{
+                    <div className="intro-heart" style={{ color: '#c8a84b', fontSize: '1.2rem', margin: '0.3rem 0' }}>♡</div>
+                    <h2 className="intro-title" style={{
                       fontFamily: 'var(--font-english)',
                       fontSize: 'clamp(1.5rem, 4.5vw, 2.2rem)',
                       color: '#2a1500',
@@ -251,9 +252,9 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
                       Ahmed
                     </h2>
 
-                    <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, #c8a84b, transparent)', margin: '0 10% 0.9rem' }} />
+                    <div className="intro-line" style={{ height: '1px', background: 'linear-gradient(to right, transparent, #c8a84b, transparent)', margin: '0 10% 0.9rem' }} />
 
-                    <p style={{
+                    <p className="intro-date" style={{
                       fontFamily: 'var(--font-english-sans)',
                       fontSize: '0.62rem',
                       letterSpacing: '0.22em',
@@ -265,6 +266,7 @@ export default function IntroScreen({ onComplete }: { onComplete: () => void }) 
                     </p>
 
                     <button
+                      className="intro-btn"
                       onClick={handleOpen}
                       style={{
                         padding: '0.7rem 2rem',

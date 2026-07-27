@@ -139,3 +139,44 @@ input:focus, textarea:focus, select:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-gold);
 }
+
+/* ── Mobile Responsive Overrides for Envelope Intro Card ── */
+@media (max-width: 480px) {
+  .intro-card {
+    padding: 1rem 1rem 0.8rem !important;
+    left: 4% !important;
+    right: 4% !important;
+    bottom: -10px !important;
+  }
+  .intro-ornament {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.3rem !important;
+    margin-top: 0.2rem !important;
+  }
+  .intro-lead {
+    font-size: 0.5rem !important;
+    margin-bottom: 0.4rem !important;
+    letter-spacing: 0.2em !important;
+  }
+  .intro-line {
+    margin: 0.4rem auto 0.6rem !important;
+  }
+  .intro-title {
+    font-size: 1.35rem !important;
+  }
+  .intro-heart {
+    font-size: 0.9rem !important;
+    margin: 0.15rem 0 !important;
+  }
+  .intro-date {
+    font-size: 0.52rem !important;
+    margin-bottom: 0.8rem !important;
+    letter-spacing: 0.15em !important;
+  }
+  .intro-btn {
+    padding: 0.55rem 1.4rem !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.12em !important;
+  }
+}
+
